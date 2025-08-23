@@ -1,91 +1,113 @@
-Core Banking Customer Account Dashboard
-This project presents a frontend implementation for a new Core Banking web application. It is designed to be a secure, responsive, and performant Customer Account Dashboard, integrating with backend APIs (secured with OAuth 2.0) to provide comprehensive account information, transaction history, and facilitate payments and transfers.
+# SwitchMFB - Core Banking Customer Account Dashboard
 
-Demo Site
-You can access and test the live application here:
+## A secure, responsive, and performant Core Banking Customer Account Dashboard built with React, Redux Toolkit, and Tailwind CSS. This application provides users with a clean interface to log in, view their personal profile, manage various accounts, and track recent transactions, as well as initiate payments and transfers.
 
-Demo URL: https://switch-assesment.netlify.app/
+### Table of Contents
 
-Login Credentials
-To explore the dashboard, please use the following credentials on the login page:
+- [Project Overview](#project-overview)
+- [Key Features](#key-features)
+- [Architectural Decisions](#architectural-decisions)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Login Credentials](#login-credentials)
+- [Screenshots](#screenshots)
 
-Username: yaqub.adesola
+---
 
-Password: 123456
+### Project Overview
 
-Key Features Implemented
-The application offers a range of functionalities to manage customer finances efficiently:
+SwitchMFB is a single-page application designed as a frontend for a new Core Banking web application. It simulates a modern banking dashboard, allowing users to interact with secured backend APIs (secured with OAuth 2.0). The application features a simple and secure login interface, followed by a protected dashboard where users can view their profile, manage different account types (Savings, Current, Loan), interact with a dynamic transaction history, and perform funds transfers. The project emphasizes robust state management, a clean, maintainable folder structure, and a highly responsive user experience.
 
-Account Overview Page:
+### Key Features
 
-Displays a consolidated view of all accounts, including Savings, Current, and Loan types.
+- **Secure User Authentication:** A dedicated login page with protected routes, ensuring only authenticated users can access the dashboard. Integrates OAuth 2.0 authentication (mocked for this assessment).
+- **Account Overview Page:** Displays a summary of various account types (Savings, Current, Loan), masked account numbers (last 4 digits visible), current balance with currency formatting, and last transaction date. Includes filtering by account type and sorting by balance and last transaction date.
+- **Profile Information:** A dedicated section to display the user's personal details.
+- **Dynamic Transaction History:** On clicking an account, users are navigated to /accounts/:id/transactions. It displays a list of transactions including date, description, debit/credit indicator (color-coded), amount, and balance after transaction. Features pagination/infinite scroll, advanced filtering, and export to CSV.
 
-Presents essential details such as masked account numbers (showing only the last 4 digits), current balance formatted with currency symbols, and the last transaction date.
+- **Funds Transfer Module:** Accessible from account details, this module allows users to initiate transfers via a form with source account dropdown, beneficiary account number (with validation), amount, and description. It includes a confirmation modal and handles POST requests to /api/transfers.
+- **Global Loading State:** A centralized state management for loading indicators across different parts of the application.
+- **Responsive Design:** The layout is fully responsive, providing a consistent experience across various devices and screen sizes.
 
-Provides interactive filtering by account type and sorting by balance and last transaction date.
+### Architectural Decisions
 
-Transaction History:
+1.  **Separation of Concerns (Folder Structure):**
+    The project is organized with a clear separation of responsibilities to ensure a clean and scalable codebase.
 
-Allows users to navigate to a detailed transaction history upon selecting a specific account.
+    - **`pages/`**: Contains top-level components that represent a full page or a specific route (`Login.jsx`, `Dashboard.jsx`, `TransactionPage.jsx`, `TransfersPage.jsx`,` LandingPage.jsx`).
+    - **`components/`**: Houses reusable UI components, further organized by domain (`accounts`, `profile`, `transactions`) and type (`layout`, `common`). This prevents a large, unorganized folder and makes components easy to find.
+    - **`features/`**: Dedicated to Redux slices (`authSlice`, `accountsSlice`, `loaderSlice`, `profileSlice`, `sessionSlice`, `transactionsSlice`, `transfersSlice`), centralizing all application state management logic in one place. This strictly adheres to the Redux Toolkit pattern.
+    - **`routes/`**: Contains the `ProtectedRoute.jsx` component, separating route-related logic from the UI components.
 
-Fetches and displays transaction details including date, description, amount (color-coded for debit/credit), and balance after each transaction.
+2.  **State Management with Redux Toolkit:**
+    Redux Toolkit (RTK) was chosen to provide a predictable state container for the application. `createSlice` was used to simplify Redux boilerplate. A dedicated `loaderSlice` was implemented to manage the loading state for all data fetching operations, allowing for a consistent user experience with minimal code repetition.
 
-Features advanced filtering and the capability to export transactions as a CSV file.
+3.  **UI Development with Tailwind CSS:**
+    Tailwind CSS was used for styling to enable rapid UI development. Its utility-first approach allowed for building complex layouts and components directly in the JSX, ensuring a consistent design system and making the application easy to style and maintain.
 
-Funds Transfer Module:
+4.  **Decoupled Frontend and Backend:**
+    A mock API (`mockApi.js`) was implemented to simulate backend data fetching. This decision allowed the frontend development to proceed independently, demonstrating a clean architecture that can be easily connected to a real backend API in the future.
 
-Enables users to initiate secure transfers.
+### Technologies Used
 
-A user-friendly form allows selection of source account, input of beneficiary account number (with validation), transfer amount, and an optional description.
+- **Frontend:** React, React Router
+- **State Management:** Redux Toolkit, React-Redux
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **Axios Mock Adapter:** Mock API
+- **Axios:** For Fetching API
+- **Heroicons:** For scalable vector icons.
 
-A confirmation modal is presented before finalizing any transfer.
+### Setup and Installation
 
-Handles the submission to the /api/transfers endpoint and provides feedback on transfer status.
+Follow these steps to get the project up and running on your local machine.
 
-Security & Session Management:
+1.  **Clone the repository:**
 
-Integrated with OAuth 2.0 authentication (mocked for the assessment).
+    ```bash
+    git clone https://github.com/yaqubadesola/switch_assessment_2.git
+    cd switch_assessment_2
+    ```
 
-Ensures that sensitive user data is never stored in plain text in localStorage.
+2.  **Install dependencies:**
 
-Includes an auto-logout mechanism after 5 minutes of inactivity, preceded by a warning modal.
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-Sensitive fields are masked by default and can be revealed on demand.
+3.  **Start the development server:**
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-Technologies Used
-The project is built using a modern frontend stack:
+The application will be available at `http://localhost:5173`.
 
-React: For building the dynamic user interface.
+### Login Credentials
 
-React Router DOM: For handling client-side routing and navigation.
+To access the dashboard, use the following credentials on the login page:
 
-Redux Toolkit: For efficient and predictable state management, especially for asynchronous data flows.
+- **Demo Site:** `https://switchmfb.netlify.app/`
+- **Username:** `yaqub.adesola`
+- **Password:** `123456`
 
-Tailwind CSS: A utility-first CSS framework for rapid and responsive UI development.
+### Screenshots
 
-Heroicons: A set of beautiful, free open source SVG icons (used as React components).
+#### Landing Page
 
-Axios: A promise-based HTTP client for making API requests.
+![Landing Page](https://github.com/yaqubadesola/switch_assessment/blob/master/docs/images/LandingPage.png)
 
-Axios Mock Adapter: For mocking API requests during development and testing.
+#### Login Page
 
-OAuth 2.0 (Mocked): For secure authentication flows.
+![Login Page](https://github.com/yaqubadesola/switch_assessment/blob/master/docs/images/LoginPage.png)
 
-Core Dependencies:
-@heroicons/react: ^2.2.0
+#### Dashboard
 
-@reduxjs/toolkit: ^2.8.2
+![Dashboard](https://github.com/yaqubadesola/switch_assessment/blob/master/docs/images/DashboardPage.png)
 
-axios: ^1.11.0
+---
 
-axios-mock-adapter: ^2.1.0
-
-react: ^18.3.1
-
-react-dom: ^18.3.1
-
-react-icons: ^5.5.0
-
-react-redux: ^9.2.0
-
-react-router-dom: ^6.30.1
+_This project was created as a technical assessment for Interswitch._
