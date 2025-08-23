@@ -98,15 +98,31 @@ To access the dashboard, use the following credentials on the login page:
 
 #### Landing Page
 
-![Landing Page](https://github.com/yaqubadesola/switch_assessment/blob/master/docs/images/LandingPage.png)
+![Landing Page](https://github.com/yaqubadesola/switch_assessment_2/blob/master/docs/screenshots/landingpage.png)
 
 #### Login Page
 
-![Login Page](https://github.com/yaqubadesola/switch_assessment/blob/master/docs/images/LoginPage.png)
+![Login Page](https://github.com/yaqubadesola/switch_assessment_2/blob/master/docs/screenshots/loginpage.png)
 
 #### Dashboard
 
-![Dashboard](https://github.com/yaqubadesola/switch_assessment/blob/master/docs/images/DashboardPage.png)
+![Dashboard](https://github.com/yaqubadesola/switch_assessment_2/blob/master/docs/screenshots/dashboard.png)
+
+#### Transaction History
+
+![Transaction History](https://github.com/yaqubadesola/switch_assessment_2/blob/master/docs/screenshots/transactionhistory.png)
+
+#### FundTransfer
+
+![Fund Transfer](https://github.com/yaqubadesola/switch_assessment_2/blob/master/docs/screenshots/fundtransfer.png)
+
+#### Confirmation
+
+![Confirmation](https://github.com/yaqubadesola/switch_assessment_2/blob/master/docs/screenshots/consfirmation.png)
+
+#### Logout Warning Modal
+
+![Logal Warning Modal](https://github.com/yaqubadesola/switch_assessment_2/blob/master/docs/screenshots/logout_warning.png)
 
 ---
 
