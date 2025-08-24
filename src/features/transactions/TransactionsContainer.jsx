@@ -51,7 +51,7 @@ export default function TransactionsContainer() {
   return (
     <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
       {/* Header Section */}
-      <div className="flex flex-col gap-2 mb-4">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-2 mb-8">
         {/* Account Type */}
         <h2 className="text-2xl font-bold text-gray-800">
           {accountMeta?.type || ""} Account
@@ -67,11 +67,11 @@ export default function TransactionsContainer() {
       </div>
 
       {/* Filters + Export */}
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <h3 className="text-lg font-semibold text-gray-700">
           Transaction History
         </h3>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center flex-col md:flex-row gap-3">
           <TransactionFilters filters={filters} setFilters={setFilters} />
           <ExportCSVButton data={filteredTxns} />
         </div>
