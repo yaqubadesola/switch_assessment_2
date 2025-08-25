@@ -91,8 +91,8 @@ The application will be available at `http://localhost:5173`.
 To access the dashboard, use the following credentials on the login page:
 
 - **Demo Site:** `https://switchmfb.netlify.app/`
-- **Username:** `yaqub.adesola`
-- **Password:** `123456`
+- **Username:** `switch_user`
+<!-- - **Password:** `123456` -->
 
 ### Screenshots
 

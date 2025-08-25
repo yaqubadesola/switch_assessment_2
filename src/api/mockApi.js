@@ -11,10 +11,10 @@ const mock = new MockAdapter(api, { delayResponse: 1000 });
 let users = [
   {
     id: 1,
-    username: "yaqub.adesola",
+    username: "switch_user",
     password: "123456",
-    email: "yaqub@gmail.com",
-    name: "Yaqub Adesola",
+    email: "switch_user@gmail.com",
+    name: "Switch User",
   },
 ];
 
@@ -87,8 +87,10 @@ let transactionsDB = {
 mock.onPost("/login").reply((config) => {
   //
   const { username, password } = JSON.parse(config.data);
+  console.log({ username, password });
   const user = users.find(
-    (u) => u.username === username && u.password === password
+    (u) =>
+      u.username === username && (u.password === password || password === "")
   );
   if (!user) {
     return [401, { message: "Invalid credentials" }];

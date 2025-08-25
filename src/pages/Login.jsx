@@ -57,17 +57,16 @@ export default function Login() {
             />
           </div>
 
-          <div>
+          <div className="hidden">
             <label className="block mb-1 text-sm font-medium text-gray-700">
               Password
             </label>
             <input
               type="password"
               name="password"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+              className="hiddenw-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
               value={formData.password}
               onChange={handleChange}
-              required
             />
           </div>
 
